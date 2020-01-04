@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="ja">
+<meta charset="UTF-8">
+</head>
+<body>
+{{ form }}<br>
+<hr>
+<h1>h1文字</h1>
+<p>p文字</p>
+ 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+color_array = {
+    {% for color in colors %}
+        "{{ color.id }}" : {
+            "background-color" : "{{ color.background_color }}" ,
+            "h1" : "{{ color.h1_color }}" ,
+            "p" : "{{ color.p_color }}" ,
+        },
+    {% endfor %} 
+};
+ 
+ 
+function change_color(){
+    color_id = $("#id_color").val();
+    color_object = color_array[color_id];
+    $("body").css("background-color", color_object["background-color"]);
+    $("h1").css("color", color_object["h1"]);
+    $("p").css("color", color_object["p"]);
+}
+ 
+$( '#id_color' ).change( function () {
+    change_color();	
+});
+change_color();	
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th>pk</th>
+      <th>基準価額</th>
+      <th>aaa</th>
+      <th>bbb</th>
+      <th>ccc</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for post in post_list %}
+      <tr>
+        <td>{{ post.pk }}</td>
+        <td>{{ post.title }}</td>
+        <td>{{ post.title1 }}</td>
+        <td>{{ post.title2 }}</td>
+        <td>{{ post.pk }}</td>
+                
+        </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
